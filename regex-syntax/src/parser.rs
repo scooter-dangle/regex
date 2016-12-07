@@ -2747,6 +2747,7 @@ mod tests {
         test_err!("[]", 2, ErrorKind::UnexpectedClassEof);
         test_err!("[^]", 3, ErrorKind::UnexpectedClassEof);
         test_err!(r"[^\d\D]", 7, ErrorKind::EmptyClass);
+        test_err!(r"[^\x00-\xff]", 12, ErrorKind::EmptyClass);
     }
 
     #[test]
